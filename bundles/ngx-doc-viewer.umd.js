@@ -288,7 +288,7 @@
             this.url = '';
             this.queryParams = '';
             this.viewerUrl = '';
-            this.googleCheckInterval = 3000;
+            this.googleCheckInterval = 1000;
             this.disableContent = 'none';
             this.googleCheckContentLoaded = true;
         }
@@ -363,7 +363,7 @@
                                 this.ngZone.runOutsideAngular(function () {
                                     // if it's not loaded after the googleIntervalCheck, then open load again.
                                     _this.checkIFrameSubscription = rxjs.timer(100, _this.googleCheckInterval)
-                                        .pipe(operators.take(Math.round(_this.googleCheckInterval === 0 ? 0 : 20000 / _this.googleCheckInterval)))
+                                        .pipe(operators.take(Math.round(_this.googleCheckInterval === 0 ? 0 : 5000 / _this.googleCheckInterval)))
                                         .subscribe(function () {
                                         var _a, _b;
                                         var iframe = (_b = (_a = _this.iframes) === null || _a === void 0 ? void 0 : _a.first) === null || _b === void 0 ? void 0 : _b.nativeElement;

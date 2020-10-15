@@ -18,7 +18,7 @@ class NgxDocViewerComponent {
         this.url = '';
         this.queryParams = '';
         this.viewerUrl = '';
-        this.googleCheckInterval = 3000;
+        this.googleCheckInterval = 1000;
         this.disableContent = 'none';
         this.googleCheckContentLoaded = true;
     }
@@ -87,7 +87,7 @@ class NgxDocViewerComponent {
                         this.ngZone.runOutsideAngular(() => {
                             // if it's not loaded after the googleIntervalCheck, then open load again.
                             this.checkIFrameSubscription = timer(100, this.googleCheckInterval)
-                                .pipe(take(Math.round(this.googleCheckInterval === 0 ? 0 : 20000 / this.googleCheckInterval)))
+                                .pipe(take(Math.round(this.googleCheckInterval === 0 ? 0 : 5000 / this.googleCheckInterval)))
                                 .subscribe(() => {
                                 var _a, _b;
                                 const iframe = (_b = (_a = this.iframes) === null || _a === void 0 ? void 0 : _a.first) === null || _b === void 0 ? void 0 : _b.nativeElement;
